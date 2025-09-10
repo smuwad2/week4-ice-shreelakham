@@ -14,12 +14,12 @@
     <button id="btnAdd" onclick="addItem()">add</button>
 
    <ul>
-      <li>Notebook<!--<button>Delete</button></li>-->
-      <li>Jello</li>
-      <li>Spinach</li>
-      <li>Rice</li>
-      <li>Birthday Cake</li>
-      <li>Candles</li>
+      <li>Notebook<button onclick="deleteItem(this.parentNode)">Delete</button></li> <!--<button>Delete</button></li>-->
+      <li>Jello<button onclick="deleteItem(this.parentNode)">Delete</button></li>
+      <li>Spinach<button onclick="deleteItem(this.parentNode)">Delete</button></li>
+      <li>Rice<button onclick="deleteItem(this.parentNode)">Delete</button></li>
+      <li>Birthday Cake<button onclick="deleteItem(this.parentNode)">Delete</button></li>
+      <li>Candles<button onclick="deleteItem(this.parentNode)">Delete</button></li>
    </ul>
 
    <script>
@@ -30,9 +30,20 @@
          const ulElem = document.getElementsByTagName("ul")[0];
          const liElem = document.createElement("li");
          liElem.innerText = newItemVal;
+         const delbtnelem = document.createElement("button");
+         delbtnelem.innerText = "Delete";
+         delbtnelem.addEventListener("click",function(){
+            deleteItem(this.parentNode)
+         })
+         liElem.appendChild(delbtnelem);
+
          ulElem.appendChild(liElem);
 
          
+      }
+
+      function deleteItem(elem){
+         elem.remove();
       }
 
 
