@@ -11,6 +11,7 @@
 
    <input type="text" id="inputText">
    <!-- add a button here for adding new item -->
+    <button id="btnAdd" onclick="addItem()">add</button>
 
    <ul>
       <li>Notebook<!--<button>Delete</button></li>-->
@@ -24,6 +25,16 @@
    <script>
 
       // add code here
+      function addItem(){
+         const newItemVal = document.getElementById("inputText").value;
+         const ulElem = document.getElementsByTagName("ul")[0];
+         const liElem = document.createElement("li");
+         liElem.innerText = newItemVal;
+         ulElem.appendChild(liElem);
+
+         
+      }
+
 
    </script>
 
